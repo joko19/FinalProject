@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">Proyek Akhir</string>
+    <string name="movies">Film</string>
+    <string name="tv_show">Acara TV</string>
+    <string name="favorit">Favorit</string>
+    <string name="nama">judul film</string>
+    <string name="name">judul</string>
+    <string name="simpan">Simpan</string>
+    <string name="pilih_bahasa">Pilih Bahasa</string>
+    <string name="tanggal_rilis">tanggal rilis</string>
+    <string name="berhasil">data berhasil ditambahkan ke favorit</string>
+    <string name="hapus">data telah dihapus dari favorit</string>
+    <string name="cek_data">Tidak ada Favorit</string>
+    <string name="cek_tvshow">tidak ada acara tv favorit</string>
+</resources>

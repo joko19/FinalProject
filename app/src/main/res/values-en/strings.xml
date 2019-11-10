@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="movies">Movies</string>
+    <string name="tv_show">TV Show</string>
+    <string name="favorit">Favourit</string>
+    <string name="nama">judul film</string>
+    <string name="name">judul</string>
+    <string name="simpan">Save</string>
+    <string name="pilih_bahasa">Choose Language</string>
+    <string name="tanggal_rilis">Release Date</string>
+    <string name="berhasil">Data successfully added to Favorites</string>
+    <string name="hapus">Data has been deleted from favorites</string>
+    <string name="cek_data">Nothing Favorourite</string>
+    <string name="cek_tvshow">Nothing Favourite TV Show</string>
+</resources>
