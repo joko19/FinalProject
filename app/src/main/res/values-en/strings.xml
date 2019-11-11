@@ -12,4 +12,7 @@
     <string name="hapus">Data has been deleted from favorites</string>
     <string name="cek_data">Nothing Favorourite</string>
     <string name="cek_tvshow">Nothing Favourite TV Show</string>
+    <string name="widget">Favorite Movie</string>
+    <string name="tambah_widget">Add widget</string>
+    <string name="kosong">No Data</string>
 </resources>
