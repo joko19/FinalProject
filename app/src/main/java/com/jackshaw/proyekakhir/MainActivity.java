@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.jackshaw.proyekakhir.fragment.FavouriteFragment;
@@ -20,12 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView btn_navigation;
     private FragmentManager fragmentManager;
     private Fragment fragment;
+    private MainActivity acbar;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //menambahkan menu ke action bar
-//        getMenuInflater().inflate(R.menu.search, menu);
-        getMenuInflater().inflate(R.menu.setting, menu);
         return true;
     }
 
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btn_navigation = findViewById(R.id.btn_navigation);
 
         fragmentManager = getSupportFragmentManager();
@@ -66,4 +64,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

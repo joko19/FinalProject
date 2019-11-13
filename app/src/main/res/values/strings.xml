@@ -12,7 +12,7 @@
     <string name="hapus">data telah dihapus dari favorit</string>
     <string name="cek_data">Tidak ada Favorit</string>
     <string name="cek_tvshow">tidak ada acara tv favorit</string>
-    <string name="widget">Favorite Movie</string>
-    <string name="tambah_widget">tambah widget</string>
-    <string name="kosong">Tidak ada Data</string>
+    <string name="hello_blank_fragment" translatable="false">hello_blank_fragment</string>
+    <string name="widget">widget</string>
+    <string name="kosong">data yang anda cari tidak ada</string>
 </resources>

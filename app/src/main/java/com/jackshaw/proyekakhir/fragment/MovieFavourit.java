@@ -45,6 +45,7 @@ public class MovieFavourit extends Fragment {
         progressBar.setVisibility(View.GONE);
         return v;
     }
+//    setHasOptionsMenu(true);
 
     public void loadMovie(){
         movieDB = new MovieDB(getContext());

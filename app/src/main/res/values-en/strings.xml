@@ -14,5 +14,6 @@
     <string name="cek_tvshow">Nothing Favourite TV Show</string>
     <string name="widget">Favorite Movie</string>
     <string name="tambah_widget">Add widget</string>
-    <string name="kosong">No Data</string>
+    <string name="kosong">The data you are looking for does not exist</string>
+
 </resources>

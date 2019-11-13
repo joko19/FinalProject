@@ -12,18 +12,33 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.jackshaw.proyekakhir.DetailActivity;
 import com.jackshaw.proyekakhir.R;
 import com.jackshaw.proyekakhir.model.Movie;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
+import java.util.Locale;
+
+import static com.android.volley.VolleyLog.TAG;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<Movie> mData;
+    private RequestQueue requestQueue;
+    private String URL_SEARCH = "https://api.themoviedb.org/3/search/movie?api_key=1f92af9188f4f01778fa3a65d850ccdb&language=en-US&query=";
 
     public MovieAdapter(Context mContext, List<Movie> mData) {
         this.mContext = mContext;
@@ -94,4 +109,41 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         }
     }
 
+    public List<Movie> filter(String keyword){
+        keyword = keyword.toLowerCase(Locale.getDefault());
+        mData.clear();
+        String search = URL_SEARCH + keyword;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, search, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    JSONArray film = obj.getJSONArray("results");
+                    for (int i=0; i<film.length(); i++) {
+                        JSONObject jsonObject = film.getJSONObject(i);
+                        Movie movie = new Movie();
+                        movie.setTitle(jsonObject.getString("original_title"));
+                        movie.setRating(jsonObject.getString("vote_average"));
+                        movie.setPoster("https://image.tmdb.org/t/p/w185/" + jsonObject.getString("poster_path"));
+                        movie.setPopularity(jsonObject.getString("popularity"));
+                        movie.setRelease(jsonObject.getString("release_date"));
+                        movie.setOverview(jsonObject.getString("overview"));
+                        movie.setBackdrop("https://image.tmdb.org/t/p/w185/" + jsonObject.getString("backdrop_path"));
+                        mData.add(movie);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                notifyDataSetChanged();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e(TAG, "Error: " + error.getMessage());
+//                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        return mData;
+    }
 }
